@@ -70,6 +70,7 @@ class AdminResource extends Resource
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime('Y-m-d'),
             ])
+            ->defaultSort('id', 'desc')
             ->filters([
                 Tables\Filters\Filter::make('verified')
                     ->query(fn (Builder $query): Builder => $query->whereNotNull('email_verified_at')),
