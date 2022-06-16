@@ -47,3 +47,11 @@ FILAMENT_PATH=/
 ```php
 'dark_mode' => true,
 ```
+
+- upgrade
+
+```sh
+composer update
+
+php artisan filament:upgrade
+```
