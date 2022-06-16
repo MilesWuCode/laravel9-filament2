@@ -40,7 +40,7 @@ class AdminPolicy
      */
     public function create(Admin $admin)
     {
-        //
+        return true;
     }
 
     /**
@@ -52,7 +52,7 @@ class AdminPolicy
      */
     public function update(Admin $admin, Admin $data)
     {
-        //
+        return true;
     }
 
     /**

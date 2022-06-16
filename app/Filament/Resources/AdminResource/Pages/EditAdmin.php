@@ -25,7 +25,9 @@ class EditAdmin extends EditRecord
 
     protected function mutateFormDataBeforeSave(array $data): array
     {
-        if (array_key_exists('password', $data)) {
+        if (is_null($data['password'])) {
+            unset($data['password']);
+        } else {
             $data['password'] = Hash::make($data['password']);
         }
 

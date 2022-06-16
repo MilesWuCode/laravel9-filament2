@@ -57,14 +57,25 @@ FILAMENT_PATH=/
 - config/filament.php
 
 ```php
+// dark
 'dark_mode' => true,
 
-'is_collapsible_on_desktop' => true,
+// logo
+'footer' => [
+    'should_show_logo' => false,
+],
 
+// width:null, 'xl', '7xl', 'full'
+'max_content_width' => null,
+
+// notify position
 'notifications' => [
     'vertical_alignment' => 'bottom',
     'alignment' => 'right',
 ],
+
+// collapsible
+'is_collapsible_on_desktop' => true,
 ```
 
 - upgrade

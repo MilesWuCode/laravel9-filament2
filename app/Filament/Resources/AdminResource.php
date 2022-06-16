@@ -41,14 +41,14 @@ class AdminResource extends Resource
 
                 Forms\Components\TextInput::make('password')
                     ->password()
-                    ->hiddenOn(Pages\EditAdmin::class)
+                    ->visibleOn(Pages\CreateAdmin::class)
                     ->hiddenOn(Pages\ViewAdmin::class)
                     ->required()
                     ->maxLength(255),
 
                 Forms\Components\TextInput::make('password')
                     ->password()
-                    ->hiddenOn(Pages\CreateAdmin::class)
+                    ->visibleOn(Pages\EditAdmin::class)
                     ->hiddenOn(Pages\ViewAdmin::class)
                     ->maxLength(255),
             ]);
