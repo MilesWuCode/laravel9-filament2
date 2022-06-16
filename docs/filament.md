@@ -58,6 +58,13 @@ FILAMENT_PATH=/
 
 ```php
 'dark_mode' => true,
+
+'is_collapsible_on_desktop' => true,
+
+'notifications' => [
+    'vertical_alignment' => 'bottom',
+    'alignment' => 'right',
+],
 ```
 
 - upgrade
