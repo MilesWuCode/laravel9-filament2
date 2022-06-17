@@ -144,7 +144,6 @@ return [
         'register' => [
             Widgets\AccountWidget::class,
             Widgets\FilamentInfoWidget::class,
-            \FilamentVersions\FilamentVersionsWidget::class,
         ],
     ],
 
