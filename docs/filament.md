@@ -156,4 +156,12 @@ class Admin extends Authenticatable
         'model' => App\Models\Admin::class,
     ],
 ],
+'passwords' => [
+    'users' => [
+        'provider' => 'users',
+        'table' => 'cms.password_resets',
+        'expire' => 60,
+        'throttle' => 60,
+    ],
+],
 ```

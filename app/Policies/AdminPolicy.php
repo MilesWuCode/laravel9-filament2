@@ -64,7 +64,7 @@ class AdminPolicy
      */
     public function delete(Admin $admin, Admin $data)
     {
-        //
+        return true;
     }
 
     /**
