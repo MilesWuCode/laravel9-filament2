@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e5857ab61af39c66ca6f7d864ccc0358",
+    "content-hash": "2734f36750d050bd110d100b4510afba",
     "packages": [
         {
             "name": "akaunting/laravel-money",
@@ -1103,16 +1103,16 @@
         },
         {
             "name": "filament/filament",
-            "version": "v2.13.2",
+            "version": "v2.13.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel-filament/admin.git",
-                "reference": "f0baa0955e448e373da21ff4fcf326bcb4587b5d"
+                "reference": "b3676b9d4529aa73cc744dc6298fd85a10ee19f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel-filament/admin/zipball/f0baa0955e448e373da21ff4fcf326bcb4587b5d",
-                "reference": "f0baa0955e448e373da21ff4fcf326bcb4587b5d",
+                "url": "https://api.github.com/repos/laravel-filament/admin/zipball/b3676b9d4529aa73cc744dc6298fd85a10ee19f4",
+                "reference": "b3676b9d4529aa73cc744dc6298fd85a10ee19f4",
                 "shasum": ""
             },
             "require": {
@@ -1160,20 +1160,20 @@
                 "issues": "https://github.com/laravel-filament/filament/issues",
                 "source": "https://github.com/laravel-filament/filament"
             },
-            "time": "2022-06-15T09:06:32+00:00"
+            "time": "2022-06-16T04:33:17+00:00"
         },
         {
             "name": "filament/forms",
-            "version": "v2.13.2",
+            "version": "v2.13.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel-filament/forms.git",
-                "reference": "7f09790533d5cf054ddbbe1458df7546734d05c3"
+                "reference": "e86a2f76eec4a317ce74b72fd1e9c67e115cec0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel-filament/forms/zipball/7f09790533d5cf054ddbbe1458df7546734d05c3",
-                "reference": "7f09790533d5cf054ddbbe1458df7546734d05c3",
+                "url": "https://api.github.com/repos/laravel-filament/forms/zipball/e86a2f76eec4a317ce74b72fd1e9c67e115cec0c",
+                "reference": "e86a2f76eec4a317ce74b72fd1e9c67e115cec0c",
                 "shasum": ""
             },
             "require": {
@@ -1217,20 +1217,20 @@
                 "issues": "https://github.com/laravel-filament/filament/issues",
                 "source": "https://github.com/laravel-filament/filament"
             },
-            "time": "2022-06-15T09:06:24+00:00"
+            "time": "2022-06-16T04:33:14+00:00"
         },
         {
             "name": "filament/support",
-            "version": "v2.13.2",
+            "version": "v2.13.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel-filament/support.git",
-                "reference": "27306b5354266275b249e4cb881ec2f101565ac7"
+                "reference": "a7b98df8689eb76280865ff45f7eacf05bce6615"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel-filament/support/zipball/27306b5354266275b249e4cb881ec2f101565ac7",
-                "reference": "27306b5354266275b249e4cb881ec2f101565ac7",
+                "url": "https://api.github.com/repos/laravel-filament/support/zipball/a7b98df8689eb76280865ff45f7eacf05bce6615",
+                "reference": "a7b98df8689eb76280865ff45f7eacf05bce6615",
                 "shasum": ""
             },
             "require": {
@@ -1266,20 +1266,20 @@
                 "issues": "https://github.com/laravel-filament/filament/issues",
                 "source": "https://github.com/laravel-filament/filament"
             },
-            "time": "2022-06-15T10:40:04+00:00"
+            "time": "2022-06-16T05:53:48+00:00"
         },
         {
             "name": "filament/tables",
-            "version": "v2.13.2",
+            "version": "v2.13.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel-filament/tables.git",
-                "reference": "44c46610df3c1e566f39ffd0760f32b4bfebbf2e"
+                "reference": "a9d6f72cbf0e2e5adf408fde1105ef850c3c7059"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel-filament/tables/zipball/44c46610df3c1e566f39ffd0760f32b4bfebbf2e",
-                "reference": "44c46610df3c1e566f39ffd0760f32b4bfebbf2e",
+                "url": "https://api.github.com/repos/laravel-filament/tables/zipball/a9d6f72cbf0e2e5adf408fde1105ef850c3c7059",
+                "reference": "a9d6f72cbf0e2e5adf408fde1105ef850c3c7059",
                 "shasum": ""
             },
             "require": {
@@ -1320,7 +1320,7 @@
                 "issues": "https://github.com/laravel-filament/filament/issues",
                 "source": "https://github.com/laravel-filament/filament"
             },
-            "time": "2022-06-15T12:40:13+00:00"
+            "time": "2022-06-16T05:53:42+00:00"
         },
         {
             "name": "fruitcake/php-cors",
