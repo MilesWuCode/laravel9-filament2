@@ -59,16 +59,22 @@ class AdminResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('id')->sortable(),
+
                 Tables\Columns\TextColumn::make('name'),
+
                 Tables\Columns\TextColumn::make('email'),
 
                 // Tables\Columns\TextColumn::make('email_verified_at')
                 //     ->dateTime('Y-m-d'),
 
                 Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime('Y-m-d'),
+                    ->dateTime('Y-m-d')
+                    ->toggleable(isToggledHiddenByDefault: true),
+
                 Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime('Y-m-d'),
+                    ->dateTime('Y-m-d')
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->defaultSort('id', 'desc')
             ->filters([
