@@ -3,24 +3,61 @@
 ```sh
 # laravel
 curl -s "https://laravel.build/laravel9-filament2" | bash
+```
 
+- .env
+
+```ini
+# MAIN DB
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=main
+DB_USERNAME=sail
+DB_PASSWORD=password
+
+# CMS DB
+CMS_DB_HOST=mysql
+CMS_DB_PORT=3306
+CMS_DB_DATABASE=cms
+CMS_DB_USERNAME=sail
+CMS_DB_PASSWORD=password
+
+# CMS PATH
+FILAMENT_PATH=/
+```
+
+- database/migrations/\*.php
+
+```php
+// add connection to cms
+Schema:://...
+// to
+Schema::connection('cms')->
+```
+
+- db.md
+
+```sh
 # migrate
 php artisan migrate
+```
 
+```sh
 # filament
 composer require filament/filament
 
 # config, --force
 php artisan vendor:publish --tag=filament-config --force
 
+# --generate:php artisan make:filament-resource Customer --generate
+composer require doctrine/dbal
+
 # make user
 php artisan make:filament-user
 
 # open
 open http://localhost/admin
-
-# --generate:php artisan make:filament-resource Customer --generate
-composer require doctrine/dbal
 ```
 
 - composer.json
@@ -37,21 +74,6 @@ composer require doctrine/dbal
 ```php
 // disabled
 // Route::...
-```
-
-- .env
-
-```ini
-# CMS DB
-CMS_DB_CONNECTION=mysql
-CMS_DB_HOST=mysql
-CMS_DB_PORT=3306
-CMS_DB_DATABASE=laravel9_filament2
-CMS_DB_USERNAME=sail
-CMS_DB_PASSWORD=password
-
-# CMS PATH
-FILAMENT_PATH=/
 ```
 
 - config/filament.php

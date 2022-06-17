@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Saade\FilamentLaravelLog\Pages\ViewLog;
+use App\Models\Admin;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +25,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        ViewLog::can(function (Admin $admin) {
+            return true;
+        });
     }
 }
