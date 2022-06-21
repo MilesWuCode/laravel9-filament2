@@ -27,6 +27,11 @@ return [
     'navigationGroup' => 'System',
 
     /**
+     * Navigation sort.
+     */
+    'navigationSort' => 4,
+
+    /**
      * Navigation icon.
      */
     'navigationIcon' => 'heroicon-o-document-text',
