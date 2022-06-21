@@ -111,6 +111,7 @@ php artisan filament:upgrade
 - config/database.php
 
 ```php
+// cms連線
 'cms' => [
     'driver' => 'mysql',
     'url' => env('CMS_DATABASE_URL'),
@@ -130,6 +131,9 @@ php artisan filament:upgrade
         PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
     ]) : [],
 ],
+
+// 建立在cms
+'migrations' => 'cms.migrations',
 ```
 
 - app/Models/Admin.php
