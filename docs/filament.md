@@ -1,10 +1,3 @@
-- install
-
-```sh
-# laravel
-curl -s "https://laravel.build/laravel9-filament2" | bash
-```
-
 - .env
 
 ```ini
@@ -133,7 +126,7 @@ php artisan filament:upgrade
 ],
 
 // 建立在cms
-'migrations' => 'cms.migrations',
+'migrations' => env('CMS_DB_DATABASE').'.migrations',
 ```
 
 - app/Models/Admin.php
@@ -163,7 +156,7 @@ class Admin extends Authenticatable
 'passwords' => [
     'users' => [
         'provider' => 'users',
-        'table' => 'cms.password_resets',
+        'table' => env('CMS_DB_DATABASE').'.password_resets',
         'expire' => 60,
         'throttle' => 60,
     ],

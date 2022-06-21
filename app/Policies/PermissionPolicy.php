@@ -3,9 +3,10 @@
 namespace App\Policies;
 
 use App\Models\Admin;
+use App\Models\Permission;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class AdminPolicy
+class PermissionPolicy
 {
     use HandlesAuthorization;
 
@@ -17,19 +18,19 @@ class AdminPolicy
      */
     public function viewAny(Admin $admin)
     {
-        return true;
+        return $admin->hasPermissionTo('超級管理員');
     }
 
     /**
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\Admin  $admin
-     * @param  \App\Models\Admin  $data
+     * @param  \App\Models\Permission  $permission
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(Admin $admin, Admin $data)
+    public function view(Admin $admin, Permission $permission)
     {
-        return true;
+        return $admin->hasPermissionTo('超級管理員');
     }
 
     /**
@@ -47,15 +48,11 @@ class AdminPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\Admin  $admin
-     * @param  \App\Models\Admin  $data
+     * @param  \App\Models\Permission  $permission
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(Admin $admin, Admin $data)
+    public function update(Admin $admin, Permission $permission)
     {
-        if ($data->id === $admin->id) {
-            return true;
-        }
-
         return $admin->hasPermissionTo('超級管理員');
     }
 
@@ -63,10 +60,10 @@ class AdminPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\Admin  $admin
-     * @param  \App\Models\Admin  $data
+     * @param  \App\Models\Permission  $permission
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(Admin $admin, Admin $data)
+    public function delete(Admin $admin, Permission $permission)
     {
         return $admin->hasPermissionTo('超級管理員');
     }
@@ -86,10 +83,10 @@ class AdminPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\Admin  $admin
-     * @param  \App\Models\Admin  $data
+     * @param  \App\Models\Permission  $permission
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(Admin $admin, Admin $data)
+    public function restore(Admin $admin, Permission $permission)
     {
         return $admin->hasPermissionTo('超級管理員');
     }
@@ -98,10 +95,10 @@ class AdminPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\Admin  $admin
-     * @param  \App\Models\Admin  $data
+     * @param  \App\Models\Permission  $permission
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(Admin $admin, Admin $data)
+    public function forceDelete(Admin $admin, Permission $permission)
     {
         return $admin->hasPermissionTo('超級管理員');
     }

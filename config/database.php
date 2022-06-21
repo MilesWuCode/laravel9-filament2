@@ -126,7 +126,7 @@ return [
     |
     */
 
-    'migrations' => 'cms.migrations',
+    'migrations' => env('CMS_DB_DATABASE').'.migrations',
 
     /*
     |--------------------------------------------------------------------------

@@ -89,7 +89,7 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
-            'table' => 'cms.password_resets',
+            'table' => env('CMS_DB_DATABASE').'.password_resets',
             'expire' => 60,
             'throttle' => 60,
         ],

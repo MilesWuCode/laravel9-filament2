@@ -14,8 +14,8 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
-
-
+use Filament\Forms\Components\SpatieTagsInput;
+use Filament\Tables\Columns\SpatieTagsColumn;
 
 class PostResource extends Resource
 {
@@ -38,6 +38,9 @@ class PostResource extends Resource
                     ->multiple()
                     ->enableReordering()
                     ->collection('collection'),
+
+                SpatieTagsInput::make('tags')
+                    ->type('categories'),
             ]);
     }
 
@@ -62,6 +65,8 @@ class PostResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
 
                 SpatieMediaLibraryImageColumn::make('cover')->collection('cover'),
+
+                SpatieTagsColumn::make('tags')->type('categories'),
             ])
             ->filters([
                 //
