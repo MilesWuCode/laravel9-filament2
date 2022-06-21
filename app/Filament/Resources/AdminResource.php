@@ -66,11 +66,14 @@ class AdminResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('id')->sortable(),
+                Tables\Columns\TextColumn::make('id')
+                    ->sortable(),
 
-                Tables\Columns\TextColumn::make('name'),
+                Tables\Columns\TextColumn::make('name')
+                    ->searchable(),
 
-                Tables\Columns\TextColumn::make('email'),
+                Tables\Columns\TextColumn::make('email')
+                    ->searchable(),
 
                 // Tables\Columns\TextColumn::make('email_verified_at')
                 //     ->dateTime('Y-m-d'),

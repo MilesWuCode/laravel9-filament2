@@ -30,6 +30,7 @@ class PostResource extends Resource
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
+
                 Forms\Components\Textarea::make('content'),
 
                 SpatieMediaLibraryFileUpload::make('cover')->collection('cover'),
@@ -44,16 +45,23 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name'),
-                // Tables\Columns\TextColumn::make('content'),
+                Tables\Columns\TextColumn::make('id')
+                    ->sortable(),
+
+                Tables\Columns\TextColumn::make('name')
+                    ->searchable(),
+
                 Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime(),
+                    ->dateTime('Y-m-d')
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+
                 Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime(),
+                    ->dateTime('Y-m-d')
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
 
                 SpatieMediaLibraryImageColumn::make('cover')->collection('cover'),
-                SpatieMediaLibraryImageColumn::make('collection')->collection('collection'),
-
             ])
             ->filters([
                 //
