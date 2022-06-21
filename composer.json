@@ -15,7 +15,6 @@
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",
         "livewire/livewire": "^2.10",
-        "phpsa/filament-authentication": "^2.1",
         "saade/filament-laravel-log": "^1.1",
         "spatie/laravel-medialibrary": "^10.3",
         "spatie/laravel-permission": "^5.5"

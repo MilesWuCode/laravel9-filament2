@@ -2,7 +2,7 @@ APP_NAME=Laravel
 APP_ENV=local
 APP_KEY=base64:DUwhf9VbpKgpm2NOZ1hqmELSiYY6GkBAEH9mQLhnvHo=
 APP_DEBUG=true
-APP_URL=http://laravel9-filament2.test
+APP_URL=http://localhost
 
 LOG_CHANNEL=stack
 LOG_DEPRECATIONS_CHANNEL=null
