@@ -12,6 +12,7 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Components\MultiSelect;
 
 class AdminResource extends Resource
 {
@@ -51,6 +52,13 @@ class AdminResource extends Resource
                     ->visibleOn(Pages\EditAdmin::class)
                     ->hiddenOn(Pages\ViewAdmin::class)
                     ->maxLength(255),
+
+                MultiSelect::make('roles')
+                    ->relationship('roles', 'name'),
+
+
+                MultiSelect::make('permissions')
+                    ->relationship('permissions', 'name'),
             ]);
     }
 
@@ -69,6 +77,7 @@ class AdminResource extends Resource
 
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime('Y-m-d')
+                    ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
 
                 Tables\Columns\TextColumn::make('updated_at')
