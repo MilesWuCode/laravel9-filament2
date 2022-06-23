@@ -7,12 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Tags\HasTags;
+use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Activitylog\LogOptions;
 
 class Post extends Model implements HasMedia
 {
     use HasFactory;
     use HasTags;
     use InteractsWithMedia;
+    use LogsActivity;
 
     protected $fillable = [
         'name',
@@ -25,5 +28,12 @@ class Post extends Model implements HasMedia
             ->singleFile();
 
         $this->addMediaCollection('collection');
+    }
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->logAll()
+            ->logExcept(['content']);
     }
 }

@@ -64,3 +64,6 @@ MEILISEARCH_HOST=http://meilisearch:7700
 
 # CMS PATH
 FILAMENT_PATH=/
+
+# activitylog
+ACTIVITY_LOGGER_DB_CONNECTION=cms
