@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fea76b4151c881084a68758f96c498e3",
+    "content-hash": "7086e4d395fc097a82862ebd7c1552c6",
     "packages": [
         {
             "name": "akaunting/laravel-money",
@@ -3033,6 +3033,83 @@
                 }
             ],
             "time": "2022-05-18T15:52:06+00:00"
+        },
+        {
+            "name": "mohamedsabil83/filament-forms-tinyeditor",
+            "version": "v1.5.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mohamedsabil83/filament-forms-tinyeditor.git",
+                "reference": "680ea5ae0a5e8bc7393c0edf94494d45d47660e9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mohamedsabil83/filament-forms-tinyeditor/zipball/680ea5ae0a5e8bc7393c0edf94494d45d47660e9",
+                "reference": "680ea5ae0a5e8bc7393c0edf94494d45d47660e9",
+                "shasum": ""
+            },
+            "require": {
+                "filament/forms": "^2.0",
+                "illuminate/contracts": "^8.73|^9.0",
+                "php": "^8.0",
+                "spatie/laravel-package-tools": "^1.9.2"
+            },
+            "require-dev": {
+                "nunomaduro/collision": "^5.10|^6.1",
+                "nunomaduro/larastan": "^1.0|^2.0",
+                "orchestra/testbench": "^6.23|^7.0",
+                "pestphp/pest": "^1.21",
+                "pestphp/pest-plugin-laravel": "^1.1",
+                "phpstan/extension-installer": "^1.1",
+                "phpstan/phpstan-deprecation-rules": "^1.0",
+                "phpstan/phpstan-phpunit": "^1.0",
+                "phpunit/phpunit": "^9.5",
+                "spatie/laravel-ray": "^1.26"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Mohamedsabil83\\FilamentFormsTinyeditor\\FilamentFormsTinyeditorServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Mohamedsabil83\\FilamentFormsTinyeditor\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "MohamedSabil83",
+                    "email": "me@mohamedsabil83.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A tinymce editor field for Filament forms",
+            "homepage": "https://github.com/mohamedsabil83/filament-forms-tinyeditor",
+            "keywords": [
+                "Forms",
+                "filament",
+                "laravel",
+                "tinyeditor",
+                "tinymce"
+            ],
+            "support": {
+                "issues": "https://github.com/mohamedsabil83/filament-forms-tinyeditor/issues",
+                "source": "https://github.com/mohamedsabil83/filament-forms-tinyeditor/tree/v1.5.5"
+            },
+            "funding": [
+                {
+                    "url": "https://paypal.me/technolizer",
+                    "type": "custom"
+                }
+            ],
+            "time": "2022-05-11T22:52:33+00:00"
         },
         {
             "name": "monolog/monolog",

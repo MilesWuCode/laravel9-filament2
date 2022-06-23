@@ -6,16 +6,17 @@ use App\Filament\Resources\PostResource\Pages;
 use App\Filament\Resources\PostResource\RelationManagers;
 use App\Models\Post;
 use Filament\Forms;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
+use Filament\Forms\Components\SpatieTagsInput;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
+use Filament\Tables\Columns\SpatieTagsColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
-use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
-use Filament\Forms\Components\SpatieTagsInput;
-use Filament\Tables\Columns\SpatieTagsColumn;
+use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 
 class PostResource extends Resource
 {
@@ -31,7 +32,17 @@ class PostResource extends Resource
                     ->required()
                     ->maxLength(255),
 
-                Forms\Components\Textarea::make('content'),
+                TinyEditor::make('content')
+                    ->language('zh_TW')
+                    ->showMenuBar()
+                    ->setRelativeUrls(false)
+                    ->setRemoveScriptHost(false)
+                    ->setConvertUrls(false)
+                    ->fileAttachmentsDisk('editor')
+                    ->fileAttachmentsDirectory(date('/Y/m/d'))
+                    ->profile('template')
+                    ->template('example'),
+
 
                 SpatieMediaLibraryFileUpload::make('cover')->collection('cover'),
                 SpatieMediaLibraryFileUpload::make('collection')
