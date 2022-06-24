@@ -14,6 +14,12 @@ class Banner extends Model implements Sortable
 
     protected $connection = 'mysql';
 
+    protected $fillable = [
+        'name',
+        'url',
+        'order_column',
+    ];
+
     public $sortable = [
         'order_column_name' => 'order_column',
         'sort_when_creating' => true,
