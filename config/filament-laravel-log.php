@@ -29,7 +29,7 @@ return [
     /**
      * Navigation sort.
      */
-    'navigationSort' => 4,
+    'navigationSort' => 5,
 
     /**
      * Navigation icon.

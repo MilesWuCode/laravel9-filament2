@@ -17,6 +17,8 @@ class Post extends Model implements HasMedia
     use InteractsWithMedia;
     use LogsActivity;
 
+    protected $connection = 'mysql';
+
     protected $fillable = [
         'name',
         'content',
