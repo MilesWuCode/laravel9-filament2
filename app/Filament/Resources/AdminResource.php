@@ -30,37 +30,65 @@ class AdminResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
-                    ->required()
-                    ->maxLength(255),
+                Forms\Components\Group::make()->schema([
+                    Forms\Components\Card::make()->schema([
+                        Forms\Components\TextInput::make('name')
+                            ->required()
+                            ->maxLength(255),
 
-                Forms\Components\TextInput::make('email')
-                    ->email()
-                    ->required()
-                    ->maxLength(255),
+                        Forms\Components\TextInput::make('email')
+                            ->email()
+                            ->required()
+                            ->maxLength(255),
 
-                // Forms\Components\DateTimePicker::make('email_verified_at')
-                //     ->displayFormat('Y-m-d H:i:s'),
+                        Forms\Components\TextInput::make('password')
+                            ->password()
+                            ->visibleOn(Pages\CreateAdmin::class)
+                            ->hiddenOn(Pages\ViewAdmin::class)
+                            ->required()
+                            ->maxLength(255),
 
-                Forms\Components\TextInput::make('password')
-                    ->password()
-                    ->visibleOn(Pages\CreateAdmin::class)
-                    ->hiddenOn(Pages\ViewAdmin::class)
-                    ->required()
-                    ->maxLength(255),
+                        Forms\Components\TextInput::make('password')
+                            ->password()
+                            ->visibleOn(Pages\EditAdmin::class)
+                            ->hiddenOn(Pages\ViewAdmin::class)
+                            ->maxLength(255),
+                    ])->columns([
+                        'sm' => 2,
+                    ]),
 
-                Forms\Components\TextInput::make('password')
-                    ->password()
-                    ->visibleOn(Pages\EditAdmin::class)
-                    ->hiddenOn(Pages\ViewAdmin::class)
-                    ->maxLength(255),
+                    Forms\Components\Card::make()->schema([
+                        MultiSelect::make('roles')
+                        ->relationship('roles', 'name'),
 
-                MultiSelect::make('roles')
-                    ->relationship('roles', 'name'),
+                        MultiSelect::make('permissions')
+                            ->relationship('permissions', 'name'),
+                    ])
+                    ->columns([
+                        'sm' => 2,
+                    ])
+                ])->columnSpan([
+                    'sm' => 2,
+                ]),
 
+                Forms\Components\Group::make()->schema([
+                    Forms\Components\Card::make()
+                        ->schema([
+                            Forms\Components\Placeholder::make('created_at')
+                                ->label('Created at')
+                                ->content(fn (?Admin $record): string => $record ? $record->created_at->diffForHumans() : '-'),
 
-                MultiSelect::make('permissions')
-                    ->relationship('permissions', 'name'),
+                            Forms\Components\Placeholder::make('updated_at')
+                                ->label('Updated at')
+                                ->content(fn (?Admin $record): string => $record ? $record->updated_at->diffForHumans() : '-'),
+                        ]),
+                ])->columnSpan([
+                    'sm' => 1,
+                ]),
+            ])
+            ->columns([
+                'sm' => 3,
+                'lg' => null,
             ]);
     }
 
@@ -76,9 +104,6 @@ class AdminResource extends Resource
 
                 Tables\Columns\TextColumn::make('email')
                     ->searchable(),
-
-                // Tables\Columns\TextColumn::make('email_verified_at')
-                //     ->dateTime('Y-m-d'),
 
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime('Y-m-d')
