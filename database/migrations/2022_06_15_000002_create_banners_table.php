@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::connection('mysql')->create('posts', function (Blueprint $table) {
+        Schema::connection('mysql')->create('banners', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->longText('content')->nullable();
+            $table->string('url');
+            $table->bigInteger('order_column');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql')->dropIfExists('posts');
+        Schema::connection('mysql')->dropIfExists('banners');
     }
 };
