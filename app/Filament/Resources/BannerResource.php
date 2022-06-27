@@ -91,7 +91,7 @@ class BannerResource extends Resource
 
                         if ($data['shift'] === 'up') {
                             Banner::setNewOrder(array_merge($left, $mergedIds, [$target->getKey()], $right), $between[0]);
-                        } else if($data['shift'] === 'down') {
+                        } elseif ($data['shift'] === 'down') {
                             Banner::setNewOrder(array_merge($left, [$target->getKey()], $mergedIds, $right), $between[0]);
                         }
                     })
