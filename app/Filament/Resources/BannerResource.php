@@ -59,46 +59,40 @@ class BannerResource extends Resource
                     ->icon('heroicon-o-switch-vertical')
                     ->deselectRecordsAfterCompletion()
                     ->action(function (Collection $records, array $data): void {
-                        if (count($records) === 1) {
-                            $record = $records->first();
+                        $target = Banner::find($data['to']);
 
-                            if ($record->id !== $data['to']) {
-                                $orderColumn = $record->determineOrderColumnName();
+                        $orderColumn = $target->determineOrderColumnName();
 
-                                $target = Banner::find($data['to']);
+                        $keyName = $target->getKeyName();
 
-                                $order = [$target->$orderColumn, $record->$orderColumn];
+                        $merged = $records->where($keyName, $target->id)->first() ? clone $records : $records->merge([$target]);
 
-                                sort($order);
+                        $mergedIds = $merged->sortBy($orderColumn)->pluck($keyName)->toArray();
 
-                                $startOrder = $order[0];
+                        $mergedOrders = $merged->sortBy($orderColumn)->pluck($orderColumn)->toArray();
 
-                                $ids = Banner::whereBetween($orderColumn, $order)
-                                    ->whereNotIn('id', [$target->getKey(), $record->getKey()])
-                                    ->ordered()
-                                    ->pluck('id')
-                                    ->toArray();
+                        $between = [$mergedOrders[0], end($mergedOrders)];
 
-                                if($record->$orderColumn > $target->$orderColumn && $data['shift'] === 'up') {
-                                    // 7 -> 4+ -> 4,5,6,7 = 7,4,5,6
-                                    array_unshift($ids, $record->getKey(), $target->getKey());
+                        if (!is_null($key = array_search($target->getKey(), $mergedIds))) {
+                            unset($mergedIds[$key]);
+                        }
 
-                                }else if($record->$orderColumn > $target->$orderColumn && $data['shift'] === 'down') {
-                                    // 7 -> 4- -> 4,5,6,7 = 4,7,5,6
-                                    array_unshift($ids, $target->getKey(), $record->getKey());
+                        $ids = Banner::whereBetween($orderColumn, $between)
+                            ->whereNotIn($keyName, $mergedIds)
+                            ->ordered()
+                            ->pluck($keyName)
+                            ->toArray();
 
-                                }else if($record->$orderColumn < $target->$orderColumn && $data['shift'] === 'up') {
-                                    // 4 -> 7+ -> 4,5,6,7 = 5,6,4,7
-                                    array_push($ids, $record->getKey(), $target->getKey());
+                        $key = array_search($target->getKey(), $ids);
 
-                                }else if($record->$orderColumn < $target->$orderColumn && $data['shift'] === 'down') {
-                                    // 4 -> 7- -> 4,5,6,7 = 5,6,7,4
-                                    array_push($ids, $target->getKey(), $record->getKey());
+                        $left = !is_null($key) ? array_slice($ids, 0, $key) : [];
 
-                                }
+                        $right = !is_null($key) ? array_slice($ids, $key+1) : [];
 
-                                Banner::setNewOrder($ids, $startOrder);
-                            }
+                        if ($data['shift'] === 'up') {
+                            Banner::setNewOrder(array_merge($left, $mergedIds, [$target->getKey()], $right), $between[0]);
+                        } else if($data['shift'] === 'down') {
+                            Banner::setNewOrder(array_merge($left, [$target->getKey()], $mergedIds, $right), $between[0]);
                         }
                     })
                     ->form([
