@@ -3,7 +3,6 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\PostResource\Pages;
-use App\Filament\Resources\PostResource\RelationManagers;
 use App\Models\Post;
 use Filament\Forms;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
@@ -14,8 +13,6 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 use Filament\Tables\Columns\SpatieTagsColumn;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 
 class PostResource extends Resource
@@ -42,7 +39,6 @@ class PostResource extends Resource
                     ->fileAttachmentsDirectory(date('/Y/m/d'))
                     ->profile('template')
                     ->template('example'),
-
 
                 SpatieMediaLibraryFileUpload::make('cover')->collection('cover'),
                 SpatieMediaLibraryFileUpload::make('collection')

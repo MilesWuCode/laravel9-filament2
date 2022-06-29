@@ -2,9 +2,9 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Admin;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
-use App\Models\Admin;
 
 class Init extends Command
 {

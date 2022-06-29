@@ -3,7 +3,6 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\BannerResource\Pages;
-use App\Filament\Resources\BannerResource\RelationManagers;
 use App\Models\Banner;
 use Filament\Forms;
 use Filament\Resources\Form;
@@ -11,7 +10,6 @@ use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Database\Eloquent\Collection;
 
 class BannerResource extends Resource
@@ -73,7 +71,7 @@ class BannerResource extends Resource
 
                         $between = [$mergedOrders[0], end($mergedOrders)];
 
-                        if (!is_null($key = array_search($target->getKey(), $mergedIds))) {
+                        if (! is_null($key = array_search($target->getKey(), $mergedIds))) {
                             unset($mergedIds[$key]);
                         }
 
@@ -85,9 +83,9 @@ class BannerResource extends Resource
 
                         $key = array_search($target->getKey(), $ids);
 
-                        $left = !is_null($key) ? array_slice($ids, 0, $key) : [];
+                        $left = ! is_null($key) ? array_slice($ids, 0, $key) : [];
 
-                        $right = !is_null($key) ? array_slice($ids, $key+1) : [];
+                        $right = ! is_null($key) ? array_slice($ids, $key + 1) : [];
 
                         if ($data['shift'] === 'up') {
                             Banner::setNewOrder(array_merge($left, $mergedIds, [$target->getKey()], $right), $between[0]);
@@ -107,8 +105,8 @@ class BannerResource extends Resource
                                 'up' => 'Up',
                                 'down' => 'Down',
                             ])
-                            ->default('up')
-                    ])
+                            ->default('up'),
+                    ]),
             ]);
     }
 

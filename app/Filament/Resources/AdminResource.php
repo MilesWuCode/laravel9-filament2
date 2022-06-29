@@ -3,16 +3,14 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\AdminResource\Pages;
-use App\Filament\Resources\AdminResource\RelationManagers;
 use App\Models\Admin;
 use Filament\Forms;
+use Filament\Forms\Components\MultiSelect;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Filament\Forms\Components\MultiSelect;
 
 class AdminResource extends Resource
 {
@@ -66,7 +64,7 @@ class AdminResource extends Resource
                     ])
                     ->columns([
                         'sm' => 2,
-                    ])
+                    ]),
                 ])->columnSpan([
                     'sm' => 2,
                 ]),

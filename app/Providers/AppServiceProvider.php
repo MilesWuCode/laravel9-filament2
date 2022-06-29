@@ -2,9 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Admin;
 use Illuminate\Support\ServiceProvider;
 use Saade\FilamentLaravelLog\Pages\ViewLog;
-use App\Models\Admin;
 
 class AppServiceProvider extends ServiceProvider
 {
