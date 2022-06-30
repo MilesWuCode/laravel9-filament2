@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use BeyondCode\Comments\Traits\HasComments;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\LogOptions;
@@ -12,6 +13,7 @@ use Spatie\Tags\HasTags;
 
 class Post extends Model implements HasMedia
 {
+    use HasComments;
     use HasFactory;
     use HasTags;
     use InteractsWithMedia;
