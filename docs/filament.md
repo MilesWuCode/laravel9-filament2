@@ -33,7 +33,8 @@ Schema::connection('cms')->
 
 ```sh
 # migrate
-php artisan migrate
+php artisan migrate --database="cms" --path="database/migrations/cms"
+php artisan migrate --database="mysql" --path="database/migrations/mysql"
 ```
 
 ```sh
@@ -124,9 +125,6 @@ php artisan filament:upgrade
         PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
     ]) : [],
 ],
-
-// 建立在cms
-'migrations' => env('CMS_DB_DATABASE').'.migrations',
 ```
 
 - app/Models/Admin.php
