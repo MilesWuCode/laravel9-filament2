@@ -35,10 +35,10 @@ class PostResource extends Resource
                     ->setRelativeUrls(false)
                     ->setRemoveScriptHost(false)
                     ->setConvertUrls(false)
-                    ->fileAttachmentsDisk('editor')
-                    ->fileAttachmentsDirectory(date('/Y/m/d'))
                     ->profile('template')
-                    ->template('example'),
+                    ->template('example')
+                    ->fileAttachmentsDisk('editor')
+                    ->fileAttachmentsDirectory(date('/Y/m/d')),
 
                 SpatieMediaLibraryFileUpload::make('cover')->collection('cover'),
                 SpatieMediaLibraryFileUpload::make('collection')
