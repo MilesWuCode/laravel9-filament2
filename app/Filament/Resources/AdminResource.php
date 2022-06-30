@@ -16,11 +16,15 @@ class AdminResource extends Resource
 {
     protected static ?string $model = Admin::class;
 
+    protected static ?string $recordTitleAttribute = 'name';
+
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
     protected static ?string $navigationGroup = 'System';
 
     protected static ?string $modelLabel = 'Admin';
+
+    protected static ?string $pluralModelLabel = 'Admins';
 
     protected static ?int $navigationSort = 1;
 
