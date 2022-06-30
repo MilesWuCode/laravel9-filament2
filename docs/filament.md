@@ -27,6 +27,7 @@ FILAMENT_PATH=/
 Schema:://...
 // to
 Schema::connection('cms')->
+Schema::connection('mysql')->
 ```
 
 - db.md
