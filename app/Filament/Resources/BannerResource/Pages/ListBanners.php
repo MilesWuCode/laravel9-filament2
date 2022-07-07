@@ -14,6 +14,7 @@ class ListBanners extends ListRecords
     {
         return [
             Actions\CreateAction::make(),
+            Actions\Action::make('Sort')->url('/banners/sort'),
         ];
     }
 }

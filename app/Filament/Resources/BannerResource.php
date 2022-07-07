@@ -124,6 +124,7 @@ class BannerResource extends Resource
         return [
             'index' => Pages\ListBanners::route('/'),
             'create' => Pages\CreateBanner::route('/create'),
+            'sort' => Pages\SortBanners::route('/sort'),
             'view' => Pages\ViewBanner::route('/{record}'),
             'edit' => Pages\EditBanner::route('/{record}/edit'),
         ];
